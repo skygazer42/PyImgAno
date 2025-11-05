@@ -1,0 +1,42 @@
+# Include the license and readme
+include LICENSE
+include README.md
+include README_cn.md
+include README_ja.md
+include README_ko.md
+include CHANGELOG.md
+include CONTRIBUTING.md
+
+# Include requirements files
+include requirements.txt
+include pyproject.toml
+include setup.py
+
+# Include configuration files
+include .editorconfig
+include .pre-commit-config.yaml
+include tox.ini
+
+# Include documentation
+recursive-include docs *.md *.rst *.html *.css *.js *.png *.jpg
+
+# Include tests (for source distributions)
+recursive-include tests *.py
+
+# Include examples
+recursive-include examples *.py *.ipynb *.md
+
+# Include type stubs
+recursive-include pyimgano py.typed *.pyi
+
+# Exclude development and build artifacts
+global-exclude __pycache__
+global-exclude *.py[cod]
+global-exclude *.so
+global-exclude .DS_Store
+global-exclude *.egg-info
+global-exclude .git*
+global-exclude .mypy_cache
+global-exclude .pytest_cache
+global-exclude .coverage
+global-exclude htmlcov
