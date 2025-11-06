@@ -6,7 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-A comprehensive, production-ready Python toolkit for visual anomaly detection, integrating **73+ state-of-the-art algorithms** from classical machine learning to cutting-edge deep learning (**CVPR 2025** 🚀, **CVPR 2024**, **ECCV 2024**, CVPR 2023, ICCV 2019, ICLR 2021, NeurIPS 2018). 🎉🔥
+A comprehensive, production-ready Python toolkit for visual anomaly detection, integrating **78+ state-of-the-art algorithms** from classical machine learning to cutting-edge deep learning (**CVPR 2025** 🚀, **CVPR 2024**, **ECCV 2024**) and traditional industrial methods (HOG, LBP, SPC 🏭, Template Matching). 🎉🔥🏭
 
 > **Translations:** [中文](README_cn.md) · [日本語](README_ja.md) · [한국어](README_ko.md)
 
@@ -14,7 +14,7 @@ A comprehensive, production-ready Python toolkit for visual anomaly detection, i
 
 ## ✨ Key Features
 
-- 🔥 **73+ Detection Algorithms** 🎉🔥🚀 - From classical (ECOD, COPOD, KNN, PCA, GMM) to latest **CVPR 2025** SOTA (One-for-More #1, BayesianPF, Odd-One-Out, CrossMAD) plus highly practical methods (MemAE, FCDD, Mahalanobis)
+- 🔥 **78+ Detection Algorithms** 🎉🔥🚀🏭 - From classical (ECOD, COPOD, KNN, PCA, GMM) to latest **CVPR 2025** SOTA (One-for-More #1, BayesianPF, Odd-One-Out, CrossMAD), practical methods (MemAE, FCDD, Mahalanobis), and industrial classics (HOG+SVM, LBP, SPC, Template Matching)
 - 🚀 **Production Ready** - Enterprise-grade code quality, comprehensive testing, CI/CD pipelines
 - 📦 **Unified API** - Consistent interface across all algorithms with factory pattern
 - ⚡ **High Performance** - Top-tier algorithms (ECOD, COPOD) optimized for speed and accuracy
@@ -68,9 +68,15 @@ A comprehensive, production-ready Python toolkit for visual anomaly detection, i
 | **STFPM** | Deep Learning | 2021 | ⭐⭐⭐⭐ | ⚡⚡ | Student-Teacher, localization |
 | **MemAE** ⭐ 🆕 | Deep Learning | 2019 | ⭐⭐⭐⭐⭐ | ⚡⚡⚡ | Memory-augmented, prototypical |
 | **Mahalanobis** ⭐ 🆕 | Deep Learning | 2018 | ⭐⭐⭐⭐ | ⚡⚡⚡⚡ | Statistical distance, fast inference |
+| **HOG + SVM** ⭐ 🆕 🏭 | Industrial | 2005 | ⭐⭐⭐ | ⚡⚡⚡⚡ | Gradient features, edge detection |
+| **LBP** ⭐ 🆕 🏭 | Industrial | 2002 | ⭐⭐⭐ | ⚡⚡⚡⚡ | Texture analysis, surface defects |
+| **SPC** ⭐ 🆕 🏭 | Industrial | Classic | ⭐⭐⭐⭐ | ⚡⚡⚡⚡ | Control charts, process monitoring |
+| **Template Matching** ⭐ 🆕 🏭 | Industrial | Classic | ⭐⭐⭐ | ⚡⚡⚡⚡⚡ | Correlation, positional defects |
+| **Histogram** ⭐ 🆕 🏭 | Industrial | Classic | ⭐⭐ | ⚡⚡⚡⚡⚡ | Color/brightness consistency |
 | **GMM** ⭐ 🆕 | Classical | Classic | ⭐⭐⭐ | ⚡⚡⚡⚡ | Mixture model, interpretable |
 
 > **See [Algorithm Selection Guide](docs/ALGORITHM_SELECTION_GUIDE.md) and [Deep Learning Guide](docs/DEEP_LEARNING_MODELS.md) for detailed comparison**
+> **🏭 = Traditional Industrial Methods - Battle-tested in manufacturing!**
 
 ---
 

@@ -39,6 +39,7 @@ _auto_import(
         "knn",  # K-Nearest Neighbors (classic)
         "kpca",
         "k_means",
+        "lbp",  # NEW: Local Binary Pattern (Industrial, IEEE TPAMI 2002) ⭐⭐⭐ 🏭
         "loci",
         "loda",
         "lof",
@@ -46,7 +47,9 @@ _auto_import(
         "mcd",  # Minimum covariance determinant
         "ocsvm",
         "pca",  # Principal Component Analysis (classic)
+        "spc",  # NEW: Statistical Process Control (Industrial Gold Standard) ⭐⭐⭐⭐ 🏭
         "suod",
+        "template_matching",  # NEW: Template Matching (Industrial Classic) ⭐⭐⭐ 🏭
         "xgbod",
         # Deep learning algorithms
         "ae",
@@ -72,6 +75,8 @@ _auto_import(
         "gcad",  # NEW: Graph Convolutional AD (2023) ⭐⭐ 🆕
         "glad",  # NEW: Global-Local Adaptive Diffusion (ECCV 2024) ⭐⭐⭐ 🔥
         "gmm",  # NEW: Gaussian Mixture Model (Classic) ⭐⭐ 🆕
+        "histogram_comparison",  # NEW: Histogram-based (Industrial Classic) ⭐⭐ 🏭
+        "hog_svm",  # NEW: HOG + SVM (CVPR 2005, Industrial) ⭐⭐⭐ 🏭
         "imdd",
         "inctrl",  # NEW: In-context Residual Learning (CVPR 2024) ⭐⭐⭐ 🔥
         "intra",  # NEW: Industrial Transformer (ICCV 2023) ⭐⭐ 🆕
