@@ -68,11 +68,15 @@ _auto_import(
         "efficientad",
         "fastflow",
         "favae",  # NEW: Feature Adaptive VAE (2023) ⭐⭐ 🆕
+        "fcdd",  # NEW: Fully Convolutional Data Description (ICLR 2021) ⭐⭐⭐ 🆕
         "gcad",  # NEW: Graph Convolutional AD (2023) ⭐⭐ 🆕
         "glad",  # NEW: Global-Local Adaptive Diffusion (ECCV 2024) ⭐⭐⭐ 🔥
+        "gmm",  # NEW: Gaussian Mixture Model (Classic) ⭐⭐ 🆕
         "imdd",
         "inctrl",  # NEW: In-context Residual Learning (CVPR 2024) ⭐⭐⭐ 🔥
         "intra",  # NEW: Industrial Transformer (ICCV 2023) ⭐⭐ 🆕
+        "mahalanobis",  # NEW: Mahalanobis Distance (NeurIPS 2018) ⭐⭐⭐ 🆕
+        "memae",  # NEW: Memory-Augmented Autoencoder (ICCV 2019) ⭐⭐⭐ 🆕
         "memseg",  # NEW: Memory-guided segmentation ⭐⭐ 🆕
         "mo_gaal",
         "oddoneout",  # NEW: Odd-One-Out (CVPR 2025) ⭐⭐⭐⭐ 🚀

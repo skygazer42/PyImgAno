@@ -6,7 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-A comprehensive, production-ready Python toolkit for visual anomaly detection, integrating **69+ state-of-the-art algorithms** from classical machine learning to cutting-edge deep learning (**CVPR 2025** 🚀, **CVPR 2024**, **ECCV 2024**, CVPR 2023, ICCV 2023, CVPR 2022, ECCV 2020). 🎉🔥
+A comprehensive, production-ready Python toolkit for visual anomaly detection, integrating **73+ state-of-the-art algorithms** from classical machine learning to cutting-edge deep learning (**CVPR 2025** 🚀, **CVPR 2024**, **ECCV 2024**, CVPR 2023, ICCV 2019, ICLR 2021, NeurIPS 2018). 🎉🔥
 
 > **Translations:** [中文](README_cn.md) · [日本語](README_ja.md) · [한국어](README_ko.md)
 
@@ -14,7 +14,7 @@ A comprehensive, production-ready Python toolkit for visual anomaly detection, i
 
 ## ✨ Key Features
 
-- 🔥 **69+ Detection Algorithms** 🎉🔥🚀 - From classical (ECOD, COPOD, KNN, PCA) to latest **CVPR 2025** SOTA (One-for-More #1, BayesianPF, Odd-One-Out, CrossMAD)
+- 🔥 **73+ Detection Algorithms** 🎉🔥🚀 - From classical (ECOD, COPOD, KNN, PCA, GMM) to latest **CVPR 2025** SOTA (One-for-More #1, BayesianPF, Odd-One-Out, CrossMAD) plus highly practical methods (MemAE, FCDD, Mahalanobis)
 - 🚀 **Production Ready** - Enterprise-grade code quality, comprehensive testing, CI/CD pipelines
 - 📦 **Unified API** - Consistent interface across all algorithms with factory pattern
 - ⚡ **High Performance** - Top-tier algorithms (ECOD, COPOD) optimized for speed and accuracy
@@ -64,7 +64,11 @@ A comprehensive, production-ready Python toolkit for visual anomaly detection, i
 | **SPADE** ⭐ | Deep Learning | 2020 | ⭐⭐⭐⭐⭐ | ⚡⚡⚡ | Excellent localization, k-NN |
 | **CSFlow** | Deep Learning | 2022 | ⭐⭐⭐⭐ | ⚡⚡⚡ | Expressive flows, good accuracy |
 | **CutPaste** | Deep Learning | 2021 | ⭐⭐⭐⭐ | ⚡⚡⚡ | Self-supervised, no anomalies |
+| **FCDD** ⭐ 🆕 | Deep Learning | 2021 | ⭐⭐⭐⭐⭐ | ⚡⚡⚡ | Fully convolutional, pixel-level maps |
 | **STFPM** | Deep Learning | 2021 | ⭐⭐⭐⭐ | ⚡⚡ | Student-Teacher, localization |
+| **MemAE** ⭐ 🆕 | Deep Learning | 2019 | ⭐⭐⭐⭐⭐ | ⚡⚡⚡ | Memory-augmented, prototypical |
+| **Mahalanobis** ⭐ 🆕 | Deep Learning | 2018 | ⭐⭐⭐⭐ | ⚡⚡⚡⚡ | Statistical distance, fast inference |
+| **GMM** ⭐ 🆕 | Classical | Classic | ⭐⭐⭐ | ⚡⚡⚡⚡ | Mixture model, interpretable |
 
 > **See [Algorithm Selection Guide](docs/ALGORITHM_SELECTION_GUIDE.md) and [Deep Learning Guide](docs/DEEP_LEARNING_MODELS.md) for detailed comparison**
 
