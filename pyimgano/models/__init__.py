@@ -54,18 +54,22 @@ _auto_import(
         "cflow",  # NEW: Conditional normalizing flows (WACV 2022) ⭐
         "cutpaste",  # NEW: Self-supervised learning (CVPR 2021) ⭐⭐
         "deep_svdd",
+        "devnet",  # NEW: Deviation networks (KDD 2019) ⭐⭐ 🆕
         "dfm",  # NEW: Fast discriminative feature modeling ⭐
         "differnet",  # NEW: Learnable difference detector (WACV 2023) ⭐⭐
         "draem",  # NEW: Discriminative reconstruction (ICCV 2021) ⭐
         "efficientad",
         "fastflow",
         "imdd",
+        "memseg",  # NEW: Memory-guided segmentation ⭐⭐ 🆕
         "mo_gaal",
         "one_svm_cnn",
         "padim",
         "patchcore",  # SOTA patch-level detection (CVPR 2022)
         "reverse_distillation",
+        "riad",  # NEW: Reconstruction from adjacent decomposition ⭐⭐ 🆕
         "simplenet",  # Ultra-fast SOTA (CVPR 2023)
+        "spade",  # NEW: Sub-image anomaly detection (ECCV 2020) ⭐⭐⭐ 🆕
         "ssim",
         "ssim_struct",
         "stfpm",  # Student-Teacher matching (BMVC 2021)

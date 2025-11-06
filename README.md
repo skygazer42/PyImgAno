@@ -6,7 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-A comprehensive, production-ready Python toolkit for visual anomaly detection, integrating **40+ state-of-the-art algorithms** from classical machine learning to cutting-edge deep learning (CVPR 2023, ICCV 2021, WACV 2023, AAAI 2022).
+A comprehensive, production-ready Python toolkit for visual anomaly detection, integrating **44+ state-of-the-art algorithms** from classical machine learning to cutting-edge deep learning (CVPR 2023, ECCV 2020, ICCV 2021, WACV 2023, KDD 2019).
 
 > **Translations:** [中文](README_cn.md) · [日本語](README_ja.md) · [한국어](README_ko.md)
 
@@ -14,7 +14,7 @@ A comprehensive, production-ready Python toolkit for visual anomaly detection, i
 
 ## ✨ Key Features
 
-- 🔥 **40+ Detection Algorithms** - From classical (ECOD, COPOD, KNN, PCA) to latest SOTA (WinCLIP, SimpleNet, PatchCore, CutPaste, DifferNet)
+- 🔥 **44+ Detection Algorithms** - From classical (ECOD, COPOD, KNN, PCA) to latest SOTA (SPADE, WinCLIP, SimpleNet, MemSeg, RIAD, DevNet)
 - 🚀 **Production Ready** - Enterprise-grade code quality, comprehensive testing, CI/CD pipelines
 - 📦 **Unified API** - Consistent interface across all algorithms with factory pattern
 - ⚡ **High Performance** - Top-tier algorithms (ECOD, COPOD) optimized for speed and accuracy
@@ -34,13 +34,17 @@ A comprehensive, production-ready Python toolkit for visual anomaly detection, i
 
 | Algorithm | Type | Year | Performance | Speed | Use Case |
 |-----------|------|------|-------------|-------|----------|
-| **WinCLIP** ⭐ NEW | Deep Learning | 2023 | ⭐⭐⭐⭐⭐ | ⚡⚡ | Zero-shot, no training needed |
+| **WinCLIP** ⭐ | Deep Learning | 2023 | ⭐⭐⭐⭐⭐ | ⚡⚡ | Zero-shot, no training needed |
 | **SimpleNet** ⭐ | Deep Learning | 2023 | ⭐⭐⭐⭐⭐ | ⚡⚡⚡⚡ | Ultra-fast SOTA, production |
-| **DifferNet** NEW | Deep Learning | 2023 | ⭐⭐⭐⭐ | ⚡⚡⚡ | Learnable differences, k-NN |
+| **DifferNet** | Deep Learning | 2023 | ⭐⭐⭐⭐ | ⚡⚡⚡ | Learnable differences, k-NN |
 | **PatchCore** ⭐ | Deep Learning | 2022 | ⭐⭐⭐⭐⭐ | ⚡⚡⚡ | Best accuracy, MVTec champion |
 | **ECOD** | Classical | 2022 | ⭐⭐⭐⭐⭐ | ⚡⚡⚡ | Parameter-free, general purpose |
 | **COPOD** | Classical | 2020 | ⭐⭐⭐⭐⭐ | ⚡⚡⚡⚡ | Speed-critical applications |
-| **CutPaste** NEW | Deep Learning | 2021 | ⭐⭐⭐⭐ | ⚡⚡⚡ | Self-supervised, no anomalies |
+| **SPADE** ⭐ NEW | Deep Learning | 2020 | ⭐⭐⭐⭐⭐ | ⚡⚡⚡ | Excellent localization, k-NN |
+| **CutPaste** | Deep Learning | 2021 | ⭐⭐⭐⭐ | ⚡⚡⚡ | Self-supervised, no anomalies |
+| **RIAD** NEW | Deep Learning | 2020 | ⭐⭐⭐⭐ | ⚡⚡⚡ | Inpainting-based, self-supervised |
+| **MemSeg** NEW | Deep Learning | 2022 | ⭐⭐⭐⭐ | ⚡⚡⚡ | Memory-guided segmentation |
+| **DevNet** NEW | Deep Learning | 2019 | ⭐⭐⭐⭐ | ⚡⚡⚡ | Weakly-supervised, few labels |
 | **STFPM** | Deep Learning | 2021 | ⭐⭐⭐⭐ | ⚡⚡ | Student-Teacher, localization |
 | **FastFlow** | Deep Learning | 2021 | ⭐⭐⭐⭐ | ⚡⚡⚡ | Normalizing flows, real-time |
 
@@ -379,14 +383,14 @@ anomalies = detector.predict(monitoring_frames)
 ```
 pyimgano/
 ├── pyimgano/
-│   ├── models/          # 40+ anomaly detection algorithms
+│   ├── models/          # 44+ anomaly detection algorithms
 │   │   ├── Classical ML (19 algorithms)
 │   │   │   ├── ecod.py          # ECOD (TKDE 2022)
 │   │   │   ├── copod.py         # COPOD (ICDM 2020)
 │   │   │   ├── feature_bagging.py
 │   │   │   ├── knn.py, pca.py, lof.py, ...
 │   │   │   └── ...
-│   │   ├── Deep Learning (21 algorithms)
+│   │   ├── Deep Learning (25 algorithms)
 │   │   │   ├── winclip.py       # WinCLIP (CVPR 2023) ⭐ NEW
 │   │   │   ├── simplenet.py     # SimpleNet (CVPR 2023) ⭐
 │   │   │   ├── differnet.py     # DifferNet (WACV 2023) ⭐ NEW
