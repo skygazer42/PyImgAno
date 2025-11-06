@@ -36,76 +36,76 @@ def _auto_import(modules: Iterable[str]) -> None:
 _auto_import(
     [
         # Classical ML algorithms
-        "abod",
-        "cblof",
-        "cof",  # Connectivity-based outlier factor
-        "copod",  # High-performance, parameter-free (ICDM 2020)
-        "crossmad",  # NEW: Cross-Modal AD (CVPR 2025) ⭐⭐⭐⭐ 🚀
-        "dbscan",
-        "ecod",  # State-of-the-art, parameter-free (TKDE 2022)
-        "feature_bagging",  # Ensemble method
-        "hbos",
-        "inne",  # Isolation using nearest neighbors
-        "Isolationforest",
-        "knn",  # K-Nearest Neighbors (classic)
-        "kpca",
-        "k_means",
-        "loci",
-        "loda",
-        "lof",
-        "lscp",
-        "mcd",  # Minimum covariance determinant
-        "ocsvm",
-        "pca",  # Principal Component Analysis (classic)
-        "suod",
-        "xgbod",
+        "abod",  # Angle-Based Outlier Detection
+        "cblof",  # Cluster-Based Local Outlier Factor
+        "cof",  # Connectivity-based Outlier Factor
+        "copod",  # Copula-based Outlier Detection (ICDM 2020)
+        "crossmad",  # Cross-Modal Anomaly Detection (CVPR 2025)
+        "dbscan",  # Density-Based Spatial Clustering
+        "ecod",  # Empirical Cumulative Outlier Detection (TKDE 2022)
+        "feature_bagging",  # Feature Bagging ensemble method
+        "hbos",  # Histogram-Based Outlier Score
+        "inne",  # Isolation using Nearest Neighbors
+        "Isolationforest",  # Isolation Forest
+        "knn",  # K-Nearest Neighbors
+        "kpca",  # Kernel Principal Component Analysis
+        "k_means",  # K-Means clustering-based detection
+        "loci",  # Local Correlation Integral
+        "loda",  # Lightweight On-line Detector of Anomalies
+        "lof",  # Local Outlier Factor
+        "lscp",  # Locally Selective Combination in Parallel
+        "mcd",  # Minimum Covariance Determinant
+        "ocsvm",  # One-Class Support Vector Machine
+        "pca",  # Principal Component Analysis
+        "suod",  # Scalable Unsupervised Outlier Detection
+        "xgbod",  # Extreme Gradient Boosting Outlier Detection
         # Deep learning algorithms
-        "ae",
-        "ae1svm",
-        "alad",
-        "ast",  # NEW: Anomaly-aware Student-Teacher (2023) ⭐⭐ 🆕
-        "bayesianpf",  # NEW: Bayesian Prompt Flow (CVPR 2025) ⭐⭐⭐⭐ 🚀
-        "bgad",  # NEW: Background-guided detection (CVPR 2023) ⭐⭐ 🆕
-        "cflow",  # NEW: Conditional normalizing flows (WACV 2022) ⭐
-        "csflow",  # NEW: Cross-scale flows (WACV 2022) ⭐⭐ 🆕
-        "cutpaste",  # NEW: Self-supervised learning (CVPR 2021) ⭐⭐
-        "deep_svdd",
-        "devnet",  # NEW: Deviation networks (KDD 2019) ⭐⭐ 🆕
-        "dfm",  # NEW: Fast discriminative feature modeling ⭐
-        "differnet",  # NEW: Learnable difference detector (WACV 2023) ⭐⭐
-        "draem",  # NEW: Discriminative reconstruction (ICCV 2021) ⭐
-        "dsr",  # NEW: Deep spectral residual (WACV 2023) ⭐⭐ 🆕
-        "dst",  # NEW: Double Student-Teacher (2023) ⭐⭐ 🆕
-        "efficientad",
-        "fastflow",
-        "favae",  # NEW: Feature Adaptive VAE (2023) ⭐⭐ 🆕
-        "gcad",  # NEW: Graph Convolutional AD (2023) ⭐⭐ 🆕
-        "glad",  # NEW: Global-Local Adaptive Diffusion (ECCV 2024) ⭐⭐⭐ 🔥
-        "imdd",
-        "inctrl",  # NEW: In-context Residual Learning (CVPR 2024) ⭐⭐⭐ 🔥
-        "intra",  # NEW: Industrial Transformer (ICCV 2023) ⭐⭐ 🆕
-        "memseg",  # NEW: Memory-guided segmentation ⭐⭐ 🆕
-        "mo_gaal",
-        "oddoneout",  # NEW: Odd-One-Out (CVPR 2025) ⭐⭐⭐⭐ 🚀
-        "one_svm_cnn",
-        "oneformore",  # NEW: Continual Diffusion (#1 MVTec/VisA, CVPR 2025) ⭐⭐⭐⭐⭐ 🚀
-        "padim",
-        "panda",  # NEW: Prototypical Anomaly Network (2023) ⭐⭐ 🆕
-        "patchcore",  # SOTA patch-level detection (CVPR 2022)
-        "promptad",  # NEW: Prompt-based Few-Shot (CVPR 2024) ⭐⭐⭐ 🔥
-        "pni",  # NEW: Pyramidal normality indexing (CVPR 2022) ⭐⭐ 🆕
-        "rdplusplus",  # NEW: Reverse Distillation++ (Enhanced) ⭐⭐ 🆕
-        "realnet",  # NEW: Realistic Synthetic Anomaly (CVPR 2024) ⭐⭐⭐ 🔥
-        "regad",  # NEW: Registration-based AD (2023) ⭐⭐ 🆕
-        "reverse_distillation",
-        "riad",  # NEW: Reconstruction from adjacent decomposition ⭐⭐ 🆕
-        "simplenet",  # Ultra-fast SOTA (CVPR 2023)
-        "spade",  # NEW: Sub-image anomaly detection (ECCV 2020) ⭐⭐⭐ 🆕
-        "ssim",
-        "ssim_struct",
-        "stfpm",  # Student-Teacher matching (BMVC 2021)
-        "vae",
-        "winclip",  # NEW: Zero-shot CLIP-based (CVPR 2023) ⭐⭐⭐
+        "ae",  # Autoencoder
+        "ae1svm",  # Autoencoder with One-Class SVM
+        "alad",  # Adversarially Learned Anomaly Detection
+        "ast",  # Anomaly-aware Student-Teacher (ICCV 2023)
+        "bayesianpf",  # Bayesian Prompt Flow (CVPR 2025)
+        "bgad",  # Background-guided Anomaly Detection (CVPR 2023)
+        "cflow",  # Conditional Normalizing Flows (WACV 2022)
+        "csflow",  # Cross-scale Flows (WACV 2022)
+        "cutpaste",  # CutPaste self-supervised learning (CVPR 2021)
+        "deep_svdd",  # Deep Support Vector Data Description
+        "devnet",  # Deviation Networks (KDD 2019)
+        "dfm",  # Discriminative Feature Modeling
+        "differnet",  # DifferNet learnable difference detector (WACV 2023)
+        "draem",  # Discriminatively Reconstructed Embedding (ICCV 2021)
+        "dsr",  # Deep Spectral Residual (WACV 2023)
+        "dst",  # Double Student-Teacher (ICCV 2023)
+        "efficientad",  # EfficientAD
+        "fastflow",  # FastFlow normalizing flows
+        "favae",  # Feature Adaptive Variational Autoencoder (ICCV 2023)
+        "gcad",  # Graph Convolutional Anomaly Detection (ICCV 2023)
+        "glad",  # Global-Local Adaptive Diffusion (ECCV 2024)
+        "imdd",  # Image-level Multi-scale Discriminative Detector
+        "inctrl",  # In-context Residual Learning (CVPR 2024)
+        "intra",  # Industrial Transformer (ICCV 2023)
+        "memseg",  # Memory-guided Segmentation
+        "mo_gaal",  # Multi-Objective Generative Adversarial Active Learning
+        "oddoneout",  # Odd-One-Out neighbor comparison (CVPR 2025)
+        "one_svm_cnn",  # One-Class SVM with CNN features
+        "oneformore",  # One-for-More continual diffusion (CVPR 2025)
+        "padim",  # Patch Distribution Modeling
+        "panda",  # Prototypical Anomaly Network (ICCV 2023)
+        "patchcore",  # PatchCore patch-level detection (CVPR 2022)
+        "promptad",  # Prompt-based Few-Shot Anomaly Detection (CVPR 2024)
+        "pni",  # Pyramidal Normality Indexing (CVPR 2022)
+        "rdplusplus",  # Reverse Distillation++ (CVPR 2022)
+        "realnet",  # RealNet realistic synthetic anomalies (CVPR 2024)
+        "regad",  # Registration-based Anomaly Detection (ICCV 2023)
+        "reverse_distillation",  # Reverse Distillation
+        "riad",  # Reconstruction from Adjacent Image Decomposition
+        "simplenet",  # SimpleNet ultra-fast detector (CVPR 2023)
+        "spade",  # Sub-image Anomaly Detection with SPADE (ECCV 2020)
+        "ssim",  # Structural Similarity-based detection
+        "ssim_struct",  # SSIM with structural features
+        "stfpm",  # Student-Teacher Feature Pyramid Matching (BMVC 2021)
+        "vae",  # Variational Autoencoder
+        "winclip",  # WinCLIP zero-shot CLIP-based (CVPR 2023)
     ]
 )
 
