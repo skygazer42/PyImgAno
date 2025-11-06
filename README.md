@@ -6,7 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-A comprehensive, production-ready Python toolkit for visual anomaly detection, integrating **34+ state-of-the-art algorithms** from classical machine learning to cutting-edge deep learning (CVPR 2023, CVPR 2022).
+A comprehensive, production-ready Python toolkit for visual anomaly detection, integrating **37+ state-of-the-art algorithms** from classical machine learning to cutting-edge deep learning (CVPR 2023, ICCV 2021, WACV 2022).
 
 > **Translations:** [中文](README_cn.md) · [日本語](README_ja.md) · [한국어](README_ko.md)
 
@@ -14,7 +14,7 @@ A comprehensive, production-ready Python toolkit for visual anomaly detection, i
 
 ## ✨ Key Features
 
-- 🔥 **34+ Detection Algorithms** - From classical (ECOD, COPOD, KNN, PCA) to SOTA deep learning (SimpleNet, PatchCore, STFPM)
+- 🔥 **37+ Detection Algorithms** - From classical (ECOD, COPOD, KNN, PCA) to latest SOTA (SimpleNet, PatchCore, DRAEM, CFlow)
 - 🚀 **Production Ready** - Enterprise-grade code quality, comprehensive testing, CI/CD pipelines
 - 📦 **Unified API** - Consistent interface across all algorithms with factory pattern
 - ⚡ **High Performance** - Top-tier algorithms (ECOD, COPOD) optimized for speed and accuracy
@@ -200,13 +200,16 @@ for name, preds in results.items():
 | SUOD | `vision_suod` | Scalable ensemble |
 | XGBOD | `vision_xgbod` | XGBoost-based |
 
-### Deep Learning (15 algorithms)
+### Deep Learning (18 algorithms)
 
 | Algorithm | Model Name | Key Features |
 |-----------|------------|--------------|
 | **SimpleNet** ⭐ | `vision_simplenet` | Ultra-fast SOTA (CVPR 2023), 10x faster training |
 | **PatchCore** ⭐ | `vision_patchcore` | Best accuracy (CVPR 2022), pixel localization |
-| **STFPM** ⭐ | `vision_stfpm` | Student-Teacher (BMVC 2021), multi-scale |
+| **DRAEM** ⭐ | `vision_draem` | Synthetic anomalies (ICCV 2021), robust |
+| **CFlow-AD** ⭐ | `vision_cflow` | Conditional flows (WACV 2022), real-time |
+| **DFM** ⭐ | `vision_dfm` | Fast discriminative features, training-free |
+| **STFPM** | `vision_stfpm` | Student-Teacher (BMVC 2021), multi-scale |
 | FastFlow | `vision_fastflow` | Normalizing flows, real-time |
 | PaDiM | `vision_padim` | Patch distribution, edge devices |
 | Deep SVDD | `vision_deep_svdd` | One-class deep learning |
