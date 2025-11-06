@@ -4,6 +4,7 @@ numpy>=1.19
 numba>=0.51
 scipy>=1.5.1
 scikit-learn>=0.22.0
+scikit-image>=0.18.0
 pyod>=1.1.0
 opencv-python>=4.5.0
 torch>=1.9.0

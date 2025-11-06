@@ -680,3 +680,256 @@ class PreprocessingPipeline:
         """String representation."""
         step_names = [name for name, _, _ in self.steps]
         return f"PreprocessingPipeline(steps={step_names})"
+
+
+# Import advanced operations
+from .advanced_operations import (
+    # Frequency domain
+    apply_fft,
+    apply_ifft,
+    frequency_filter,
+    # Texture analysis
+    apply_gabor_filter,
+    compute_lbp,
+    compute_glcm_features,
+    # Color space
+    convert_color_space,
+    equalize_color_histogram,
+    # Enhancement
+    gamma_correction,
+    contrast_stretching,
+    retinex_ssr,
+    retinex_msr,
+    # Denoising
+    non_local_means_denoising,
+    anisotropic_diffusion,
+    # Feature extraction
+    extract_hog_features,
+    detect_corners,
+    # Advanced morphology
+    apply_advanced_morphology,
+    # Segmentation
+    apply_threshold,
+    watershed_segmentation,
+    # Pyramids
+    gaussian_pyramid,
+    laplacian_pyramid,
+)
+
+
+# Extend ImageEnhancer with advanced operations
+class AdvancedImageEnhancer(ImageEnhancer):
+    """
+    Extended ImageEnhancer with advanced image processing operations.
+
+    Includes all basic operations plus:
+    - Frequency domain operations (FFT, filters)
+    - Texture analysis (Gabor, LBP, GLCM)
+    - Color space transformations
+    - Advanced enhancement (Gamma, Retinex)
+    - Feature extraction (HOG, corners)
+    - Advanced morphology (skeleton, distance transform)
+    - Image segmentation
+    - Image pyramids
+    """
+
+    # Frequency Domain Operations
+
+    def apply_fft(self, image: NDArray) -> Tuple[NDArray, NDArray]:
+        """Apply Fast Fourier Transform."""
+        return apply_fft(image)
+
+    def apply_ifft(self, magnitude: NDArray, phase: NDArray) -> NDArray:
+        """Apply Inverse Fast Fourier Transform."""
+        return apply_ifft(magnitude, phase)
+
+    def frequency_filter(
+        self,
+        image: NDArray,
+        filter_type: str = "lowpass",
+        cutoff_frequency: float = 30.0
+    ) -> NDArray:
+        """Apply frequency domain filter."""
+        return frequency_filter(image, filter_type, cutoff_frequency)
+
+    # Texture Analysis
+
+    def gabor_filter(
+        self,
+        image: NDArray,
+        frequency: float = 0.1,
+        theta: float = 0,
+        sigma_x: float = 3.0,
+        sigma_y: float = 3.0
+    ) -> NDArray:
+        """Apply Gabor filter for texture analysis."""
+        return apply_gabor_filter(image, frequency, theta, sigma_x, sigma_y)
+
+    def compute_lbp(
+        self,
+        image: NDArray,
+        n_points: int = 8,
+        radius: float = 1.0,
+        method: str = "uniform"
+    ) -> NDArray:
+        """Compute Local Binary Pattern features."""
+        return compute_lbp(image, n_points, radius, method)
+
+    def compute_glcm(
+        self,
+        image: NDArray,
+        distances: list = [1],
+        angles: list = [0, np.pi/4, np.pi/2, 3*np.pi/4]
+    ) -> dict:
+        """Compute GLCM texture features."""
+        return compute_glcm_features(image, distances, angles)
+
+    # Color Space Operations
+
+    def convert_color(
+        self,
+        image: NDArray,
+        from_space: str,
+        to_space: str
+    ) -> NDArray:
+        """Convert between color spaces."""
+        return convert_color_space(image, from_space, to_space)
+
+    def equalize_color_hist(
+        self,
+        image: NDArray,
+        method: str = "hsv"
+    ) -> NDArray:
+        """Equalize color histogram."""
+        return equalize_color_histogram(image, method)
+
+    # Advanced Enhancement
+
+    def gamma_correct(self, image: NDArray, gamma: float = 1.0) -> NDArray:
+        """Apply gamma correction."""
+        return gamma_correction(image, gamma)
+
+    def contrast_stretch(
+        self,
+        image: NDArray,
+        lower_percentile: float = 2,
+        upper_percentile: float = 98
+    ) -> NDArray:
+        """Apply contrast stretching."""
+        return contrast_stretching(image, lower_percentile, upper_percentile)
+
+    def retinex_single(self, image: NDArray, sigma: float = 15.0) -> NDArray:
+        """Apply Single-Scale Retinex."""
+        return retinex_ssr(image, sigma)
+
+    def retinex_multi(
+        self,
+        image: NDArray,
+        sigmas: list = [15, 80, 250]
+    ) -> NDArray:
+        """Apply Multi-Scale Retinex."""
+        return retinex_msr(image, sigmas)
+
+    # Denoising
+
+    def nlm_denoise(
+        self,
+        image: NDArray,
+        h: float = 10,
+        template_window_size: int = 7,
+        search_window_size: int = 21
+    ) -> NDArray:
+        """Apply non-local means denoising."""
+        return non_local_means_denoising(
+            image, h, template_window_size, search_window_size
+        )
+
+    def anisotropic_diffusion(
+        self,
+        image: NDArray,
+        niter: int = 10,
+        kappa: float = 50,
+        gamma: float = 0.1,
+        option: int = 1
+    ) -> NDArray:
+        """Apply anisotropic diffusion."""
+        return anisotropic_diffusion(image, niter, kappa, gamma, option)
+
+    # Feature Extraction
+
+    def extract_hog(
+        self,
+        image: NDArray,
+        orientations: int = 9,
+        pixels_per_cell: Tuple[int, int] = (8, 8),
+        cells_per_block: Tuple[int, int] = (2, 2),
+        visualize: bool = False
+    ) -> Union[NDArray, Tuple[NDArray, NDArray]]:
+        """Extract HOG features."""
+        return extract_hog_features(
+            image, orientations, pixels_per_cell, cells_per_block, visualize
+        )
+
+    def detect_corners(
+        self,
+        image: NDArray,
+        method: str = "harris",
+        **kwargs
+    ) -> NDArray:
+        """Detect corners in image."""
+        return detect_corners(image, method, **kwargs)
+
+    # Advanced Morphology
+
+    def skeleton(self, image: NDArray) -> NDArray:
+        """Extract skeleton of binary image."""
+        return apply_advanced_morphology(image, "skeleton")
+
+    def thin(self, image: NDArray) -> NDArray:
+        """Apply thinning to binary image."""
+        return apply_advanced_morphology(image, "thin")
+
+    def convex_hull(self, image: NDArray) -> NDArray:
+        """Compute convex hull of binary image."""
+        return apply_advanced_morphology(image, "convex_hull")
+
+    def distance_transform(self, image: NDArray) -> NDArray:
+        """Apply distance transform."""
+        return apply_advanced_morphology(image, "distance_transform")
+
+    # Segmentation
+
+    def threshold(
+        self,
+        image: NDArray,
+        method: str = "otsu",
+        **kwargs
+    ) -> NDArray:
+        """Apply thresholding for segmentation."""
+        return apply_threshold(image, method, **kwargs)
+
+    def watershed(
+        self,
+        image: NDArray,
+        markers: Optional[NDArray] = None
+    ) -> NDArray:
+        """Apply watershed segmentation."""
+        return watershed_segmentation(image, markers)
+
+    # Image Pyramids
+
+    def build_gaussian_pyramid(
+        self,
+        image: NDArray,
+        levels: int = 3
+    ) -> list:
+        """Create Gaussian pyramid."""
+        return gaussian_pyramid(image, levels)
+
+    def build_laplacian_pyramid(
+        self,
+        image: NDArray,
+        levels: int = 3
+    ) -> list:
+        """Create Laplacian pyramid."""
+        return laplacian_pyramid(image, levels)

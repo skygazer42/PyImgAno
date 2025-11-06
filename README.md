@@ -19,7 +19,7 @@ A comprehensive, production-ready Python toolkit for visual anomaly detection, i
 - 📦 **Unified API** - Consistent interface across all algorithms with factory pattern
 - ⚡ **High Performance** - Top-tier algorithms (ECOD, COPOD) optimized for speed and accuracy
 - 🎯 **Flexible** - Works with any feature extractor or end-to-end deep learning
-- 🖼️ **Image Preprocessing** - 20+ operations (edge detection, morphology, filters, normalization) with easy integration
+- 🖼️ **Image Preprocessing** - 50+ operations (edge detection, morphology, filters, FFT, texture analysis, segmentation) with easy integration
 - 📊 **Comprehensive Evaluation** - AUROC, AP, F1, confusion matrix, and more
 - 🏆 **Built-in Benchmarking** - Compare multiple algorithms systematically
 - 🎨 **Rich Visualization** - Anomaly heatmaps, ROC curves, score distributions
@@ -177,21 +177,31 @@ for name, preds in results.items():
 
 ## 🖼️ Image Preprocessing
 
-Comprehensive preprocessing module with 20+ operations for enhanced anomaly detection:
+Comprehensive preprocessing module with **50+ operations** for enhanced anomaly detection:
 
 ### Quick Example
 
 ```python
-from pyimgano.preprocessing import PreprocessingMixin, PreprocessingPipeline
+from pyimgano.preprocessing import AdvancedImageEnhancer, PreprocessingMixin
 from pyimgano.models import ECOD
 
-# Method 1: Using Mixin (Recommended)
+# Method 1: Using Advanced Enhancer
+enhancer = AdvancedImageEnhancer()
+
+# Basic operations
+blurred = enhancer.gaussian_blur(image, ksize=(5, 5))
+edges = enhancer.detect_edges(blurred, method='canny')
+
+# Advanced operations
+retinex = enhancer.retinex_multi(image, sigmas=[15, 80, 250])  # Illumination invariant
+lbp = enhancer.compute_lbp(image, n_points=8, radius=1.0)  # Texture features
+hog_features = enhancer.extract_hog(image, visualize=False)  # HOG features
+
+# Method 2: Using Mixin with Detector
 class ECODWithPreprocessing(PreprocessingMixin, ECOD):
     def __init__(self):
         super().__init__()
         self.setup_preprocessing(enable=True, use_pipeline=True)
-
-        # Configure preprocessing pipeline
         self.add_preprocessing_step('gaussian_blur', ksize=(5, 5))
         self.add_preprocessing_step('normalize', method='minmax')
 
@@ -199,29 +209,34 @@ class ECODWithPreprocessing(PreprocessingMixin, ECOD):
         X_processed = self.preprocess_images(X)
         return super().fit([img.flatten() for img in X_processed], y)
 
-# Usage
 detector = ECODWithPreprocessing()
 detector.fit(train_images)
 scores = detector.predict(test_images)
-
-# Method 2: Standalone Pipeline
-pipeline = PreprocessingPipeline()
-pipeline.add_step('gaussian_blur', ksize=(5, 5))
-pipeline.add_step('detect_edges', method='canny')
-pipeline.add_step('normalize', method='minmax')
-
-processed = pipeline.transform(image)
 ```
 
-### Available Operations
+### Available Operations (50+)
 
+#### Basic Operations (25)
 | Category | Operations | Count |
 |----------|------------|-------|
 | **Edge Detection** | Canny, Sobel, Laplacian, Scharr, Prewitt, Sobel X/Y | 7 |
 | **Morphology** | Erosion, Dilation, Opening, Closing, Gradient, TopHat, BlackHat | 7 |
 | **Filters** | Gaussian, Bilateral, Median, Box | 4 |
 | **Normalization** | MinMax, Z-Score, L2, Robust | 4 |
-| **Advanced** | Sharpen, Unsharp Mask, CLAHE | 3 |
+| **Enhancement** | Sharpen, Unsharp Mask, CLAHE | 3 |
+
+#### Advanced Operations (25+)
+| Category | Operations | Count |
+|----------|------------|-------|
+| **Frequency Domain** | FFT, IFFT, Lowpass, Highpass, Bandpass, Bandstop | 6 |
+| **Texture Analysis** | Gabor filters, LBP, GLCM features | 3 |
+| **Color Space** | RGB, HSV, LAB, YCrCb, HLS, LUV + conversions | 8 |
+| **Enhancement** | Gamma correction, Contrast stretching, Retinex (SSR, MSR) | 4 |
+| **Denoising** | Non-local means, Anisotropic diffusion | 2 |
+| **Feature Extraction** | HOG, Harris corners, Shi-Tomasi, FAST | 4 |
+| **Adv. Morphology** | Skeleton, Thinning, Convex hull, Distance transform | 4 |
+| **Segmentation** | Otsu, Adaptive, Triangle, Yen, Watershed | 6 |
+| **Pyramids** | Gaussian pyramid, Laplacian pyramid | 2 |
 
 **See [Preprocessing Guide](docs/PREPROCESSING.md) for detailed usage and best practices**
 

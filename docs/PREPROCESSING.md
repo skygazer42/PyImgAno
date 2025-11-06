@@ -645,6 +645,206 @@ coarse = enhancer.detect_edges(coarse, method='canny')
 combined = (fine + coarse) / 2.0
 ```
 
+## Advanced Operations
+
+PyImgAno now includes 25+ advanced image processing operations via the `AdvancedImageEnhancer` class.
+
+### Using Advanced Enhancer
+
+```python
+from pyimgano.preprocessing import AdvancedImageEnhancer
+
+enhancer = AdvancedImageEnhancer()
+```
+
+### Frequency Domain Operations
+
+```python
+# Fast Fourier Transform
+magnitude, phase = enhancer.apply_fft(image)
+
+# Inverse FFT
+reconstructed = enhancer.apply_ifft(magnitude, phase)
+
+# Frequency filters
+lowpass = enhancer.frequency_filter(image, filter_type='lowpass', cutoff_frequency=30)
+highpass = enhancer.frequency_filter(image, filter_type='highpass', cutoff_frequency=30)
+bandpass = enhancer.frequency_filter(image, filter_type='bandpass', cutoff_frequency=20)
+```
+
+**When to use:**
+- **Lowpass**: Remove high-frequency noise
+- **Highpass**: Emphasize edges and details
+- **Bandpass**: Select specific frequency range
+
+### Texture Analysis
+
+```python
+# Gabor filters for oriented texture detection
+gabor = enhancer.gabor_filter(image, frequency=0.1, theta=np.pi/4)
+
+# Local Binary Pattern (LBP) for texture description
+lbp = enhancer.compute_lbp(image, n_points=8, radius=1.0, method='uniform')
+
+# GLCM texture features
+glcm_features = enhancer.compute_glcm(image)
+# Returns: contrast, dissimilarity, homogeneity, energy, correlation
+```
+
+**When to use:**
+- **Gabor**: Detect oriented textures (fabric, wood grain)
+- **LBP**: Fast texture classification, illumination invariant
+- **GLCM**: Statistical texture analysis, defect detection
+
+### Color Space Transformations
+
+```python
+# Convert between color spaces
+hsv = enhancer.convert_color(image, from_space='bgr', to_space='hsv')
+lab = enhancer.convert_color(image, from_space='bgr', to_space='lab')
+
+# Color histogram equalization
+eq_hsv = enhancer.equalize_color_hist(image, method='hsv')  # Equalize V channel
+eq_lab = enhancer.equalize_color_hist(image, method='lab')  # Equalize L channel
+```
+
+**Supported color spaces**: RGB, BGR, HSV, LAB, YCrCb, HLS, LUV, GRAY
+
+### Advanced Enhancement
+
+```python
+# Gamma correction (brightness adjustment)
+brightened = enhancer.gamma_correct(image, gamma=0.5)  # Brighter
+darkened = enhancer.gamma_correct(image, gamma=2.0)   # Darker
+
+# Contrast stretching
+stretched = enhancer.contrast_stretch(image, lower_percentile=2, upper_percentile=98)
+
+# Retinex (illumination invariant)
+ssr = enhancer.retinex_single(image, sigma=15.0)  # Single-scale
+msr = enhancer.retinex_multi(image, sigmas=[15, 80, 250])  # Multi-scale (better)
+```
+
+**When to use:**
+- **Gamma**: Adjust overall brightness
+- **Contrast stretch**: Enhance low-contrast images
+- **Retinex**: Handle varying illumination, shadowy images
+
+### Advanced Denoising
+
+```python
+# Non-local means denoising
+denoised = enhancer.nlm_denoise(noisy_image, h=10, template_window_size=7)
+
+# Anisotropic diffusion (edge-preserving smoothing)
+smoothed = enhancer.anisotropic_diffusion(noisy_image, niter=10, kappa=50)
+```
+
+**When to use:**
+- **NLM**: Best quality denoising, slower
+- **Anisotropic diffusion**: Edge-preserving, good for gradual smoothing
+
+### Feature Extraction
+
+```python
+# Histogram of Oriented Gradients (HOG)
+hog_features, hog_image = enhancer.extract_hog(image, visualize=True)
+
+# Corner detection
+harris = enhancer.detect_corners(image, method='harris')
+corners = enhancer.detect_corners(image, method='shi_tomasi', max_corners=100)
+fast_corners = enhancer.detect_corners(image, method='fast', threshold=10)
+```
+
+**When to use:**
+- **HOG**: Object shape description
+- **Harris/Shi-Tomasi**: Precise corner localization
+- **FAST**: Real-time corner detection
+
+### Advanced Morphological Operations
+
+```python
+# Skeletonization (medial axis)
+skeleton = enhancer.skeleton(binary_image)
+
+# Thinning
+thinned = enhancer.thin(binary_image)
+
+# Convex hull
+hull = enhancer.convex_hull(binary_image)
+
+# Distance transform
+dist = enhancer.distance_transform(binary_image)
+```
+
+**When to use:**
+- **Skeleton**: Extract centerlines, shape analysis
+- **Thinning**: Similar to skeleton, alternative algorithm
+- **Convex hull**: Fill concavities, shape completion
+- **Distance transform**: Find object centers, watershed markers
+
+### Image Segmentation
+
+```python
+# Thresholding
+otsu = enhancer.threshold(image, method='otsu')
+adaptive = enhancer.threshold(image, method='adaptive_gaussian', block_size=11, c=2)
+triangle = enhancer.threshold(image, method='triangle')
+yen = enhancer.threshold(image, method='yen')
+
+# Watershed segmentation
+segmented = enhancer.watershed(image)
+# Or with custom markers:
+segmented = enhancer.watershed(image, markers=custom_markers)
+```
+
+**When to use:**
+- **Otsu**: Bimodal histograms, automatic threshold
+- **Adaptive**: Varying illumination
+- **Triangle**: Skewed histograms
+- **Yen**: Maximum correlation
+- **Watershed**: Separate touching objects
+
+### Image Pyramids
+
+```python
+# Gaussian pyramid (multi-scale representation)
+gaussian_pyr = enhancer.build_gaussian_pyramid(image, levels=4)
+
+# Laplacian pyramid (band-pass decomposition)
+laplacian_pyr = enhancer.build_laplacian_pyramid(image, levels=4)
+```
+
+**When to use:**
+- **Gaussian pyramid**: Multi-scale processing, image blending
+- **Laplacian pyramid**: Edge detection at multiple scales, image compression
+
+### Example: Complete Advanced Workflow
+
+```python
+from pyimgano.preprocessing import AdvancedImageEnhancer
+
+enhancer = AdvancedImageEnhancer()
+
+# 1. Illumination normalization
+normalized = enhancer.retinex_multi(image, sigmas=[15, 80, 250])
+
+# 2. Color space conversion
+lab = enhancer.convert_color(normalized, from_space='bgr', to_space='lab')
+
+# 3. Denoising
+denoised = enhancer.nlm_denoise(lab, h=10)
+
+# 4. Texture analysis
+lbp = enhancer.compute_lbp(denoised, n_points=8, radius=1.0)
+
+# 5. Segmentation
+segmented = enhancer.threshold(lbp, method='otsu')
+
+# 6. Feature extraction
+hog_features = enhancer.extract_hog(segmented, visualize=False)
+```
+
 ## API Reference
 
 See the [API documentation](API.md) for complete method signatures and parameters.

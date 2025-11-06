@@ -9,17 +9,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - **Image Preprocessing Module** (`pyimgano.preprocessing`) ⭐ NEW!
-  - **ImageEnhancer** - High-level interface for 20+ enhancement operations
+  - **ImageEnhancer** - High-level interface for basic operations (25 operations)
+  - **AdvancedImageEnhancer** - Extended with 25+ advanced operations (50+ total)
   - **PreprocessingPipeline** - Sequential operation composition with method chaining
   - **PreprocessingMixin** - Easy integration with detectors via mixin pattern
+
+  **Basic Operations (25)**:
   - **Edge Detection** (7 methods): Canny, Sobel, Sobel X/Y, Laplacian, Scharr, Prewitt
   - **Morphological Operations** (7 types): Erosion, Dilation, Opening, Closing, Gradient, TopHat, BlackHat
   - **Filters** (4 types): Gaussian, Bilateral, Median, Box
   - **Normalization** (4 methods): MinMax, Z-Score, L2, Robust (IQR-based)
-  - **Advanced Operations**: Sharpen, Unsharp Mask, CLAHE
+  - **Enhancement** (3): Sharpen, Unsharp Mask, CLAHE
+
+  **Advanced Operations (25+)**:
+  - **Frequency Domain** (6): FFT, IFFT, Lowpass, Highpass, Bandpass, Bandstop filters
+  - **Texture Analysis** (3): Gabor filters, Local Binary Pattern (LBP), GLCM texture features
+  - **Color Space Transformations** (8): RGB, HSV, LAB, YCrCb, HLS, LUV + conversions
+  - **Advanced Enhancement** (4): Gamma correction, Contrast stretching, Single/Multi-Scale Retinex
+  - **Advanced Denoising** (2): Non-local means denoising, Anisotropic diffusion
+  - **Feature Extraction** (4): HOG features, Harris corners, Shi-Tomasi, FAST detector
+  - **Advanced Morphology** (4): Skeletonization, Thinning, Convex hull, Distance transform
+  - **Segmentation** (6): Otsu, Adaptive (mean/Gaussian), Triangle, Yen, Watershed
+  - **Image Pyramids** (2): Gaussian pyramid, Laplacian pyramid
+
   - Comprehensive preprocessing documentation (docs/PREPROCESSING.md)
   - Complete test suite (tests/test_preprocessing.py - 500+ lines)
-  - Usage examples (examples/preprocessing_example.py)
+  - Usage examples (examples/preprocessing_example.py, advanced_preprocessing_example.py)
 - **3 New High-Performance Deep Learning Algorithms** ⚡:
   - **DRAEM** (ICCV 2021) - Discriminatively trained reconstruction with synthetic anomalies
   - **CFlow-AD** (WACV 2022) - Real-time conditional normalizing flows
