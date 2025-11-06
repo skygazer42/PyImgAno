@@ -52,12 +52,14 @@ _auto_import(
         "ae1svm",
         "alad",
         "cflow",  # NEW: Conditional normalizing flows (WACV 2022) ⭐
+        "csflow",  # NEW: Cross-scale flows (WACV 2022) ⭐⭐ 🆕
         "cutpaste",  # NEW: Self-supervised learning (CVPR 2021) ⭐⭐
         "deep_svdd",
         "devnet",  # NEW: Deviation networks (KDD 2019) ⭐⭐ 🆕
         "dfm",  # NEW: Fast discriminative feature modeling ⭐
         "differnet",  # NEW: Learnable difference detector (WACV 2023) ⭐⭐
         "draem",  # NEW: Discriminative reconstruction (ICCV 2021) ⭐
+        "dsr",  # NEW: Deep spectral residual (WACV 2023) ⭐⭐ 🆕
         "efficientad",
         "fastflow",
         "imdd",
@@ -66,6 +68,7 @@ _auto_import(
         "one_svm_cnn",
         "padim",
         "patchcore",  # SOTA patch-level detection (CVPR 2022)
+        "pni",  # NEW: Pyramidal normality indexing (CVPR 2022) ⭐⭐ 🆕
         "reverse_distillation",
         "riad",  # NEW: Reconstruction from adjacent decomposition ⭐⭐ 🆕
         "simplenet",  # Ultra-fast SOTA (CVPR 2023)
